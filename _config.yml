@@ -1,1 +1,8 @@
-
+title: GameShare Market
+description: Açık kaynak oyunların paylaşıldığı özgür bir platform
+baseurl: "/newuserwebsite"    # Repo adın neyse buraya o yazılır
+url: "https://Newcastle.github.io"  # Buraya GitHub kullanıcı adın gelir, büyük küçük harf önemli değil
+theme: null
+markdown: kramdown
+permalink: pretty
+plugins: []
