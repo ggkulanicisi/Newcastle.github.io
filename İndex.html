@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>GameShare Market</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: sans-serif; background: #111; color: #fff; padding: 20px; }
+    header, nav, main, footer { margin-bottom: 20px; }
+    nav button { margin-right: 10px; padding: 8px 14px; background: #333; border: none; border-radius: 6px; color: white; cursor: pointer; }
+    nav button:hover { background: #555; }
+    .splash {
+      position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+      background: black; color: white; display: flex;
+      align-items: center; justify-content: center;
+      font-size: 3rem; z-index: 9999;
+      animation: splashAnim 4s forwards;
+    }
+    @keyframes splashAnim {
+      0% { opacity: 1; }
+      80% { transform: scale(1.2); }
+      100% { opacity: 0; visibility: hidden; }
+    }
+    .mobile { display: none; }
+    .desktop { display: none; }
+    .upload-btn {
+      position: fixed; bottom: 20px; left: 50%;
+      transform: translateX(-50%);
+      background: #333; padding: 10px 20px;
+      border: none; border-radius: 50px; color: white;
+      font-size: 18px;
+    }
+    .tag { display: inline-block; margin: 3px; padding: 5px 10px; background: #444; border-radius: 20px; font-size: 0.9em; }
+    .game { background: #222; padding: 15px; margin: 10px 0; border-radius: 10px; cursor: pointer; }
+    footer { font-size: 12px; opacity: 0.5; text-align: center; padding-top: 20px; border-top: 1px solid #444; }
+  </style>
+</head>
+<body>
+
+<div class="splash">GSME</div>
+
+<header>
+  <h1>🎮 GameShare Market</h1>
+  <p>Açık kaynak oyun paylaşım platformu - Sorumluluk kabul edilmez.</p>
+</header>
+
+<nav>
+  <button onclick="showSection('games')">🎮 Oyunlar</button>
+  <button onclick="showSection('profile')">👤 Profil</button>
+  <button onclick="showSection('admin')">🛠️ Admin Panel</button>
+  <button onclick="showDonate()">💸 Bağış Yap</button>
+  <button onclick="showEngine()">🧠 Gofot Engine</button>
+</nav>
+
+<main id="games">
+  <h2>Yüklenen Oyunlar</h2>
+  <div class="game" onclick="checkTag('nsfw')">
+    <h3>Dark RPG</h3>
+    <div class="tag">NSFW</div>
+    <div class="tag">HORHOR</div>
+    <div class="tag">RPG</div>
+  </div>
+  <div class="game">
+    <h3>Blok Savaşları</h3>
+    <div class="tag">FPS</div>
+    <div class="tag">MULTI</div>
+  </div>
+</main>
+
+<main id="profile" style="display:none;">
+  <h2>Profilim</h2>
+  <p>Kullanıcı: <strong>Anonim</strong></p>
+  <p>Paralar: Sarı: 20 | Siyah: 5</p>
+  <p>Profil Teması: Varsayılan</p>
+</main>
+
+<main id="admin" style="display:none;">
+  <h2>Admin Paneli</h2>
+  <p>Yeni yüklenen oyunlar:</p>
+  <ul>
+    <li>Dark Realms - Onay bekliyor <button>Onayla</button></li>
+    <li>Block Arena - Onay bekliyor <button>Onayla</button></li>
+  </ul>
+</main>
+
+<button class="upload-btn" onclick="uploadGame()">➕ Oyun Yükle</button>
+
+<script>
+  function showSection(id) {
+    document.querySelectorAll('main').forEach(m => m.style.display = 'none');
+    document.getElementById(id).style.display = 'block';
+  }
+
+  function uploadGame() {
+    alert("Oyun göndermek için: gameower260@gmail.com");
+  }
+
+  function showDonate() {
+    alert("Bu şimdilik sadece bir şaka 🙂 Bağış yapılmayacak.");
+  }
+
+  function checkTag(tag) {
+    if (tag === 'nsfw') {
+      alert("UYARI: Bu oyun NSFW etiketi içeriyor. 18 yaş altı kullanıcıların erişimi yasaktır.");
+    }
+  }
+
+  function showEngine() {
+    alert("Gofot Engine yakında entegre edilecek! Şu an demo modda.");
+  }
+
+  window.onload = () => {
+    if (window.innerWidth < 768) {
+      document.body.classList.add('mobile');
+      alert("Mobil sürüm aktifleştirildi.");
+    } else {
+      document.body.classList.add('desktop');
+      alert("PC sürüm aktifleştirildi.");
+    }
+  };
+</script>
+
+<footer>
+  <p>GameShareMarket™ - İçerikler kullanıcılar tarafından sağlanır. Yasal sorumluluk kabul edilmez. | © 2025</p>
+</footer>
+
+</body>
+</html>
